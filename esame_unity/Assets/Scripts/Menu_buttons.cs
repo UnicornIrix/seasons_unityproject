@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class Menu_buttons : MonoBehaviour
@@ -8,6 +9,7 @@ public class Menu_buttons : MonoBehaviour
     // Script che gestisce i bottoni della UI della schermata iniziale
 
     public GameObject Game_menu;
+    public AudioMixer audioMixer;
 
     // Taso Start - carica la prima scena di gioco
     public void START_button()
@@ -55,5 +57,10 @@ public class Menu_buttons : MonoBehaviour
     public void BACKSM_button()
     {
         SceneManager.LoadScene("Start_menu");
+    }
+
+    // Slider Volume - regola il master volume
+    public void SetVolume(float volume) {
+        audioMixer.SetFloat("MasterVolume", volume);
     }
 }
