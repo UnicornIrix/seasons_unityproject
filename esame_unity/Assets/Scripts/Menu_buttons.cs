@@ -63,4 +63,10 @@ public class Menu_buttons : MonoBehaviour
     public void SetVolume(float volume) {
         audioMixer.SetFloat("MasterVolume", volume);
     }
+
+    // Dropdown Quality - regola la qualità video tra high medium low
+    public void SetQuality(int qualityIndex)
+    {
+        QualitySettings.SetQualityLevel(qualityIndex);
+    }
 }
