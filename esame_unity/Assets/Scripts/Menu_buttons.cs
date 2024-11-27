@@ -23,18 +23,6 @@ public class Menu_buttons : MonoBehaviour
         Application.Quit();
     }
 
-    // Tasto Options - apre opzioni
-    public void OPTIOINS_button()
-    {
-        SceneManager.LoadScene("Options");
-    }
-
-    // Tasto Credits - apre crediti
-    public void CREDITS_button()
-    {
-        SceneManager.LoadScene("Credits");
-    }
-
     // Tasto Open menu - apre il menu di gioco
     // Attiva la ui  e stoppa il tempo
     public void OPENGM_button()
