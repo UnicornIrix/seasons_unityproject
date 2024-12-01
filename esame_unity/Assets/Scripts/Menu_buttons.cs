@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class Menu_buttons : MonoBehaviour
 {
-    // Script che gestisce i bottoni della UI della schermata iniziale
+    //
+    // Script che gestisce i bottoni della UI dei menu
+    //
 
     public GameObject Game_menu;
-    public AudioMixer audioMixer;
 
     // Taso Start - carica la prima scena di gioco
     public void START_button()
@@ -42,27 +42,10 @@ public class Menu_buttons : MonoBehaviour
     }
 
     // Tasto Back to menu - ritorna al menu iniziale
-    // Resetta la velocità del tempo (per uscire dal game menu)
+    // Resetta la velocitï¿½ del tempo (per uscire dal game menu)
     public void BACKSM_button()
     {
         SceneManager.LoadScene("Start_menu");
         Time.timeScale = 1f;
-    }
-
-    // Slider Volume - regola il master volume
-    public void SetVolume(float volume) {
-        audioMixer.SetFloat("MasterVolume", volume);
-    }
-
-    // Dropdown Quality - regola la qualità video tra high medium low
-    public void SetQuality(int qualityIndex)
-    {
-        QualitySettings.SetQualityLevel(qualityIndex);
-    }
-
-    // Dropdown Quality - regola la qualità video tra high medium low
-    public void SetFullscreen(bool isFullscreen)
-    {
-        Screen.fullScreen = isFullscreen;
     }
 }
