@@ -10,7 +10,7 @@ public class Game_Handle : MonoBehaviour
     public Rigidbody rb;
     Vector3 direction_move = Vector3.zero;
 
-    int speed_pg = 2; // velocità del personaggio (per ora provvisoria)
+    public int speed_pg = 5; // velocità del personaggio (per ora provvisoria)
     // Start is called before the first frame update
     void Start()
     {
