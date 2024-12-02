@@ -8,7 +8,7 @@ public class Game_Handle : MonoBehaviour
 {
     public InputAction player_controls;
     public Rigidbody rb;
-    Vector2 direction_move = Vector2.zero;
+    Vector3 direction_move = Vector3.zero;
 
     int speed_pg = 2; // velocità del personaggio (per ora provvisoria)
     // Start is called before the first frame update
@@ -20,7 +20,7 @@ public class Game_Handle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        direction_move = player_controls.ReadValue<Vector2>(); 
+        direction_move = player_controls.ReadValue<Vector3>(); 
     }
 
  // capire che è
@@ -33,6 +33,6 @@ public class Game_Handle : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        rb.velocity = new Vector2(direction_move.x*speed_pg, direction_move.y*speed_pg);
+        rb.velocity = new Vector3(direction_move.x*speed_pg, 0, direction_move.z*speed_pg);
     }
 }
