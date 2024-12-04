@@ -1,5 +1,6 @@
 // gestione minigame - platform
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,21 +8,29 @@ using UnityEngine.InputSystem;
 
 public class platform_handle : MonoBehaviour
 {
-    // 
+    private CharacterController character_controller;
+    float speed_pg = 10.0f;
+    Vector2 vec_move;
+
+
     public InputAction pg_controls;
 
     // vettore per far spostare il pg
-    Vector2 vec_move = Vector2.zero;
+    
+    //Vector2 vec_jump;
 
-    // velocit‡ del personaggio (provvisoria)
-    int speed_pg = 10;
+    // velocit√† del personaggio (provvisoria)
+    
 
     // per non scrivere ogni volta "this.GetComponent<Rigidbody>()"
-    public Rigidbody rb;
+     Rigidbody rb;
+
+    public float jumpForce = 10.0f;
 
     void Start()
     {
-        rb = this.GetComponent<Rigidbody>();
+        //rb = this.
+        character_controller = GetComponent<CharacterController>();
     }
 
     void Update()
@@ -42,5 +51,7 @@ public class platform_handle : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(vec_move.x * speed_pg, 0);
+        rb.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
     }
+
 }
