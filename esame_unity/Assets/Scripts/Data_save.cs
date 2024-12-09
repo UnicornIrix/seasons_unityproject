@@ -13,13 +13,13 @@ public class Data_save : MonoBehaviour
 
 
     // Indice del profilo selezionato nella schermata "Load game"
-    private static int selected_profile_index = 0;
+    public static int selected_profile_index = 0;
 
     // Indice della stagione in cui il player sta giocando / stava giocando prima di uscire
-    private static int current_season_index = 0;
+    public static int current_season_index = 0;
 
     // Position of the player
-    private static Vector3 player_position = Vector3.zero;
+    public static Vector3 player_position = Vector3.zero;
 
     // Intero che tiene traccia della progressione del giocatore
     // 2^(0) = 1 = il player ha riempito lo slot di salvataggi per la prima volta
@@ -27,8 +27,12 @@ public class Data_save : MonoBehaviour
     // 2^(2) = 4 = 
     private static int player_progression = 0;
 
+    // Per aggiornare i dati del giocatore
+    [SerializeField]
+    private GameObject player_gameobject;
 
-    // I quattro tasti di Load game
+
+    // I txt dei 4 tasti di Load game
     [SerializeField]
     private TMP_Text Slot1;
     [SerializeField]
@@ -38,6 +42,16 @@ public class Data_save : MonoBehaviour
     [SerializeField]
     private TMP_Text Slot4;
 
+    // I 4 tasti per cancellare i salvataggi del profilo
+    [SerializeField]
+    private GameObject Clear_button1;
+    [SerializeField]
+    private GameObject Clear_button2;
+    [SerializeField]
+    private GameObject Clear_button3;
+    [SerializeField]
+    private GameObject Clear_button4;
+
 
     // Get e set
     public static void SetPROFILE(int value) {
@@ -46,7 +60,7 @@ public class Data_save : MonoBehaviour
     public static int GetPROFILE() {
         return selected_profile_index;
     }
-    
+
     public static void SetSEASON(int value) {
         current_season_index = value;
     }
@@ -78,24 +92,62 @@ public class Data_save : MonoBehaviour
     }
 
 
+    // Bottone che cancella i salvataggi di uno slot
+    public static void ClearALL() {
+        PlayerPrefs.DeleteKey("Season" + selected_profile_index);
+        PlayerPrefs.DeleteKey("Xpos" + selected_profile_index);
+        PlayerPrefs.DeleteKey("Ypos" + selected_profile_index);
+        PlayerPrefs.DeleteKey("Zpos" + selected_profile_index);
+        PlayerPrefs.DeleteKey("Progression" + selected_profile_index);
+    }
+
+    public void ClearBUTTON1() {
+        Slot1.text = "1 - NEW GAME";
+        Clear_button1.SetActive(false);
+        ClearALL();
+    }
+    public void ClearBUTTON2()
+    {
+        Slot2.text = "2 - NEW GAME";
+        Clear_button2.SetActive(false);
+        ClearALL();
+    }
+    public void ClearBUTTON3()
+    {
+        Slot3.text = "3 - NEW GAME";
+        Clear_button3.SetActive(false);
+        ClearALL();
+    }
+    public void ClearBUTTON4()
+    {
+        Slot4.text = "4 - NEW GAME";
+        Clear_button4.SetActive(false);
+        ClearALL();
+    }
+
+
     // In update il controllo se gli slot di salvataggio sono vuoti o pieni
     // Se pieni il testo viene cambiato
     public void Start()
     {
         if(PlayerPrefs.HasKey("Season1")) {
-            Slot1.text = "1 - Grostnix1";
+            Slot1.text = "1 - Grostnix 1";
+            Clear_button1.SetActive(true);
         }
 
         if (PlayerPrefs.HasKey("Season2")) {
-            Slot2.text = "2 - Grostnix2";
+            Slot2.text = "2 - Grostnix 2";
+            Clear_button2.SetActive(true);
         }
 
         if (PlayerPrefs.HasKey("Season3")) {
-            Slot3.text = "3 - Grostnix3";
+            Slot3.text = "3 - Grostnix 3";
+            Clear_button3.SetActive(true);
         }
 
         if (PlayerPrefs.HasKey("Season4")) {
-            Slot4.text = "4 - Grostnix4";
+            Slot4.text = "4 - Grostnix 4";
+            Clear_button4.SetActive(true);
         }
     }
 
@@ -105,18 +157,18 @@ public class Data_save : MonoBehaviour
     public void LoadBUTTON() {
         if (PlayerPrefs.GetInt("Progression" + selected_profile_index) > 0)
         {
+            LoadALL();
+
+            SceneManager.LoadScene(current_season_index);
+        }
+        else
+        {
             // Inizializza il giocatore in primavera in posizione (0,0)
             current_season_index = 1;
             player_position = Vector3.zero;
             player_progression = 1;
 
             SaveALL();
-        }
-        else
-        {
-            LoadALL();
-
-            SceneManager.LoadScene(current_season_index);
         }
     }
 }
