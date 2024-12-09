@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Data_load : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject player;
+    public GameObject player_gameobject;
+
     // Start is called before the first frame update
     void Start()
     {
-        player.transform.position = Data_save.player_position;
+        Data_save.LoadALL();
+
+        player_gameobject.transform.position = Data_save.player_position;
     }
 }

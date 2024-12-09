@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1660016909}
+    - target: {fileID: 1631415871443443153, guid: d15d1b15d9c9f1e4eb36b88f100bf4e5, type: 3}
+      propertyPath: player_gameobject
+      value: 
+      objectReference: {fileID: 1660016909}
     - target: {fileID: 2859799873064720100, guid: d15d1b15d9c9f1e4eb36b88f100bf4e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 990.7074
@@ -353,7 +357,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c6b9d8760321d4d4c8d96810fd4ea257, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1005,6 +1009,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6432541491347976264, guid: 842725b32cdc64f4cb9a882c3ca25899, type: 3}
+      propertyPath: player_gameobject
+      value: 
+      objectReference: {fileID: 1660016909}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

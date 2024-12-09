@@ -11,6 +11,8 @@ public class Menu_buttons : MonoBehaviour
 
     public GameObject Game_menu;
 
+    // public GameObject player_gameobject;
+
     // Taso Start - carica la prima scena di gioco
     public void START_button()
     {
@@ -47,5 +49,7 @@ public class Menu_buttons : MonoBehaviour
     {
         SceneManager.LoadScene("Start_menu");
         Time.timeScale = 1f;
+        //Data_save.player_position = player_gameobject.transform.position;
+        // Data_save.SaveALL();
     }
 }

@@ -79,6 +79,20 @@ public class Data_save : MonoBehaviour
         PlayerPrefs.SetInt("Season" + selected_profile_index, current_season_index);
 
         PlayerPrefs.SetInt("Progression" + selected_profile_index, player_progression);
+
+
+        Debug.Log("selected_profile_index = " + selected_profile_index);
+        Debug.Log("current_season_index = " + current_season_index);
+        Debug.Log("player_position.x = " + player_position.x);
+        Debug.Log("player_position.y = " + player_position.y);
+        Debug.Log("player_position.z = " + player_position.z);
+        Debug.Log("player_progression = " + player_progression);
+
+        Debug.Log("PlayerPrefs.GetInt(\"Season\"" + selected_profile_index + " = " + PlayerPrefs.GetInt("Season" + selected_profile_index));
+        Debug.Log("PlayerPrefs.GetInt(\"Xpos\"" + selected_profile_index + " = " + PlayerPrefs.GetInt("Xpos" + selected_profile_index));
+        Debug.Log("PlayerPrefs.GetInt(\"Ypos\"" + selected_profile_index + " = " + PlayerPrefs.GetInt("Ypos" + selected_profile_index));
+        Debug.Log("PlayerPrefs.GetInt(\"Zpos\"" + selected_profile_index + " = " + PlayerPrefs.GetInt("Zpos" + selected_profile_index));
+        Debug.Log("PlayerPrefs.GetInt(\"Progression\"" + selected_profile_index + " = " + PlayerPrefs.GetInt("Progression" + selected_profile_index));
     }
 
     // Carica tutto
@@ -89,8 +103,26 @@ public class Data_save : MonoBehaviour
         player_position.y = PlayerPrefs.GetInt("Ypos" + selected_profile_index);
         player_position.z = PlayerPrefs.GetInt("Zpos" + selected_profile_index);
         player_progression = PlayerPrefs.GetInt("Progression" + selected_profile_index);
+
+
+        Debug.Log("selected_profile_index = " + selected_profile_index);
+        Debug.Log("current_season_index = " + current_season_index);
+        Debug.Log("player_position.x = " + player_position.x);
+        Debug.Log("player_position.y = " + player_position.y);
+        Debug.Log("player_position.z = " + player_position.z);
+        Debug.Log("player_progression = " + player_progression);
+
+        Debug.Log("PlayerPrefs.GetInt(\"Season\"" + selected_profile_index + " = " + PlayerPrefs.GetInt("Season" + selected_profile_index));
+        Debug.Log("PlayerPrefs.GetInt(\"Xpos\"" + selected_profile_index + " = " + PlayerPrefs.GetInt("Xpos" + selected_profile_index));
+        Debug.Log("PlayerPrefs.GetInt(\"Ypos\"" + selected_profile_index + " = " + PlayerPrefs.GetInt("Ypos" + selected_profile_index));
+        Debug.Log("PlayerPrefs.GetInt(\"Zpos\"" + selected_profile_index + " = " + PlayerPrefs.GetInt("Zpos" + selected_profile_index));
+        Debug.Log("PlayerPrefs.GetInt(\"Progression\"" + selected_profile_index + " = " + PlayerPrefs.GetInt("Progression" + selected_profile_index));
     }
 
+    // Funzione che aggiorna le variabili statiche
+    public void UpdateALL() {
+        player_position =  player_gameobject.transform.position;
+    }
 
     // Bottone che cancella i salvataggi di uno slot
     public static void ClearALL() {
@@ -101,6 +133,31 @@ public class Data_save : MonoBehaviour
         PlayerPrefs.DeleteKey("Progression" + selected_profile_index);
     }
 
+
+    // Funzione dei tasti del menu Load game
+    // Crea un nuovo salvataggio o aggiorna i dati se già pieno
+    public void LoadBUTTON() {
+        if (PlayerPrefs.HasKey("Progression" + selected_profile_index))
+        {
+            LoadALL();
+
+            SceneManager.LoadScene(current_season_index);
+        }
+        else
+        {
+            // Inizializza il giocatore in primavera in posizione (0,0)
+            current_season_index = 1;
+            player_position = Vector3.zero;
+            player_progression = 1;
+
+            SaveALL();
+
+            SceneManager.LoadScene(current_season_index);
+        }
+    }
+    
+
+    // Funzioni dei 4 bottoni per cancellare i salvataggi
     public void ClearBUTTON1() {
         Slot1.text = "1 - NEW GAME";
         Clear_button1.SetActive(false);
@@ -148,27 +205,6 @@ public class Data_save : MonoBehaviour
         if (PlayerPrefs.HasKey("Season4")) {
             Slot4.text = "4 - Grostnix 4";
             Clear_button4.SetActive(true);
-        }
-    }
-
-
-    // Funzione dei tasti del menu Load game
-    // Crea un nuovo salvataggio o aggiorna i dati se già pieno
-    public void LoadBUTTON() {
-        if (PlayerPrefs.GetInt("Progression" + selected_profile_index) > 0)
-        {
-            LoadALL();
-
-            SceneManager.LoadScene(current_season_index);
-        }
-        else
-        {
-            // Inizializza il giocatore in primavera in posizione (0,0)
-            current_season_index = 1;
-            player_position = Vector3.zero;
-            player_progression = 1;
-
-            SaveALL();
         }
     }
 }
