@@ -18,12 +18,13 @@ private CharacterController character_controller;
     private Vector2 vec_move;
 */
     // variabili salto
-    private Vector3 vec_jump;
+    [SerializeField]private Vector3 vec_jump;
     private bool groundedPlayer; // per controllare se il pg è in aria o sul terreno
     private bool jumpPressed = false; // per controllare se è già stato premuto il tasto (spazio in questo caso)
     [SerializeField] private float jumpForce = 10.0f; // quanto può andare in alto il pg
     private float gravityValue = -9.8f;
 
+    private PlayerInputs inputSystem;
     void Start()
     {
         character_controller = GetComponent<CharacterController>();
@@ -54,9 +55,11 @@ private CharacterController character_controller;
             
         }
 
+    if(!groundedPlayer){
         vec_jump.y += gravityValue * Time.deltaTime;
-        Debug.Log("abracadabra");
+        //Debug.Log("abracadabra");
         character_controller.Move(vec_jump * Time.deltaTime);
+    }
     }
 
     // funzioni che fanno parte dell'input system, mandano "messaggi" al gameobject
@@ -68,13 +71,13 @@ private CharacterController character_controller;
 
     void OnJump() {
         // controlli
-        if (character_controller.velocity.y == 0) {
+        //if (character_controller.velocity.y == 0) {
             // può saltare (non è in aria)
             jumpPressed = true;
             Debug.Log("Can jump");
-        } else {
+        //} else {
             // non può saltare (è in aria)
-            Debug.Log("Can't jump");
-        }
+          //  Debug.Log("Can't jump");
+        //}
     }
 }
