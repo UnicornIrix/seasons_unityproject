@@ -6,52 +6,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(CharacterController))] // forza il programma a richiedere il character controller, se non esiste non funge nulla
+
 public class platform_handle : MonoBehaviour
 {
+
+    // variabili movimento
     private CharacterController character_controller;
-    float speed_pg = 10.0f;
-    Vector2 vec_move;
+    private float speed_pg = 10.0f;
+    private Vector2 vec_move;
 
-
-    public InputAction pg_controls;
-
-    // vettore per far spostare il pg
-    
-    //Vector2 vec_jump;
-
-    // velocità del personaggio (provvisoria)
-    
-
-    // per non scrivere ogni volta "this.GetComponent<Rigidbody>()"
-     Rigidbody rb;
-
-    public float jumpForce = 10.0f;
+    // variabili salto
+    private Vector3 vec_jump;
+    private bool isGrounded; // per vedere se il pg è in aria o sul terreno
+    private bool jumpPressed = false;
+    [SerializeField] private float jumpForce = 10.0f; // quanto può andare in alto il pg
 
     void Start()
     {
-        //rb = this.
         character_controller = GetComponent<CharacterController>();
     }
 
     void Update()
     {
-        vec_move = pg_controls.ReadValue<Vector2>();
+        //vec_move = pg_controls.ReadValue<Vector2>();
+        Vector3 movement = new Vector3(vec_move.x, 0.0f, 0.0f); // ora mi serve muovermi solo su x
+        character_controller.SimpleMove(movement * speed_pg);
     }
 
-    private void OnEnable()
-    {
-        pg_controls.Enable(); // abilito i tasti
+    // funzioni che fanno parte dell'input system, mandano "messaggi" al gameobject
+    void OnMove(InputValue iv){
+
+        vec_move = iv.Get<Vector2>();
     }
 
-    private void OnDisable()
-    {
-        pg_controls.Disable(); // disabilito i tasti
-    }
+    void OnJump(){
 
-    private void FixedUpdate()
-    {
-        rb.velocity = new Vector2(vec_move.x * speed_pg, 0);
-        rb.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
     }
-
 }
