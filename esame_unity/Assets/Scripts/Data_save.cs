@@ -38,6 +38,7 @@ public class Data_save : MonoBehaviour
     [SerializeField]
     private TMP_Text Slot4;
 
+
     // Get e set
     public static void SetPROFILE(int value) {
         selected_profile_index = value;
@@ -55,6 +56,7 @@ public class Data_save : MonoBehaviour
 
 
     // Salva tutto
+    // Carica i valori delle variabili statiche nei prefs
     public static void SaveALL() {
         PlayerPrefs.SetFloat("Xpos" + selected_profile_index, player_position.x);
         PlayerPrefs.SetFloat("Ypos" + selected_profile_index, player_position.y);
@@ -65,6 +67,8 @@ public class Data_save : MonoBehaviour
         PlayerPrefs.SetInt("Progression" + selected_profile_index, player_progression);
     }
 
+    // Carica tutto
+    // Carica i valori dei prefs nelle variabili statiche
     public static void LoadALL() {
         current_season_index = PlayerPrefs.GetInt("Season" + selected_profile_index);
         player_position.x = PlayerPrefs.GetInt("Xpos" + selected_profile_index);
@@ -73,6 +77,9 @@ public class Data_save : MonoBehaviour
         player_progression = PlayerPrefs.GetInt("Progression" + selected_profile_index);
     }
 
+
+    // In update il controllo se gli slot di salvataggio sono vuoti o pieni
+    // Se pieni il testo viene cambiato
     public void Start()
     {
         if(PlayerPrefs.HasKey("Season1")) {
@@ -92,7 +99,9 @@ public class Data_save : MonoBehaviour
         }
     }
 
+
     // Funzione dei tasti del menu Load game
+    // Crea un nuovo salvataggio o aggiorna i dati se già pieno
     public void LoadBUTTON() {
         if (PlayerPrefs.GetInt("Progression" + selected_profile_index) > 0)
         {
