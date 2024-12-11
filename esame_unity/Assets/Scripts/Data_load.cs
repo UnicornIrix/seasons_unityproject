@@ -9,7 +9,7 @@ public class Data_load : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Data_save.LoadALL();
+        // Data_save.LoadALL();
 
         player_gameobject.transform.position = Data_save.player_position;
     }

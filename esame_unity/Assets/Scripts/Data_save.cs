@@ -13,13 +13,13 @@ public class Data_save : MonoBehaviour
 
 
     // Indice del profilo selezionato nella schermata "Load game"
-    public static int selected_profile_index = 0;
+    public static int selected_profile_index;
 
     // Indice della stagione in cui il player sta giocando / stava giocando prima di uscire
-    public static int current_season_index = 0;
+    public static int current_season_index;
 
     // Position of the player
-    public static Vector3 player_position = Vector3.zero;
+    public static Vector3 player_position;
 
     // Intero che tiene traccia della progressione del giocatore
     // 2^(0) = 1 = il player ha riempito lo slot di salvataggi per la prima volta
@@ -72,51 +72,55 @@ public class Data_save : MonoBehaviour
     // Salva tutto
     // Carica i valori delle variabili statiche nei prefs
     public static void SaveALL() {
+        PlayerPrefs.SetInt("Season" + selected_profile_index, current_season_index);
         PlayerPrefs.SetFloat("Xpos" + selected_profile_index, player_position.x);
         PlayerPrefs.SetFloat("Ypos" + selected_profile_index, player_position.y);
         PlayerPrefs.SetFloat("Zpos" + selected_profile_index, player_position.z);
-
-        PlayerPrefs.SetInt("Season" + selected_profile_index, current_season_index);
-
         PlayerPrefs.SetInt("Progression" + selected_profile_index, player_progression);
 
 
+        Debug.Log("SaveALL");
+
         Debug.Log("selected_profile_index = " + selected_profile_index);
+
         Debug.Log("current_season_index = " + current_season_index);
         Debug.Log("player_position.x = " + player_position.x);
         Debug.Log("player_position.y = " + player_position.y);
         Debug.Log("player_position.z = " + player_position.z);
         Debug.Log("player_progression = " + player_progression);
 
-        Debug.Log("PlayerPrefs.GetInt(\"Season\"" + selected_profile_index + " = " + PlayerPrefs.GetInt("Season" + selected_profile_index));
-        Debug.Log("PlayerPrefs.GetInt(\"Xpos\"" + selected_profile_index + " = " + PlayerPrefs.GetInt("Xpos" + selected_profile_index));
-        Debug.Log("PlayerPrefs.GetInt(\"Ypos\"" + selected_profile_index + " = " + PlayerPrefs.GetInt("Ypos" + selected_profile_index));
-        Debug.Log("PlayerPrefs.GetInt(\"Zpos\"" + selected_profile_index + " = " + PlayerPrefs.GetInt("Zpos" + selected_profile_index));
-        Debug.Log("PlayerPrefs.GetInt(\"Progression\"" + selected_profile_index + " = " + PlayerPrefs.GetInt("Progression" + selected_profile_index));
+        Debug.Log("PlayerPrefs.GetInt(\"Season" + selected_profile_index + "\" = " + PlayerPrefs.GetInt("Season" + selected_profile_index));
+        Debug.Log("PlayerPrefs.GetFloat(\"Xpos" + selected_profile_index + "\" = " + PlayerPrefs.GetFloat("Xpos" + selected_profile_index));
+        Debug.Log("PlayerPrefs.GetFloat(\"Ypos" + selected_profile_index + "\" = " + PlayerPrefs.GetFloat("Ypos" + selected_profile_index));
+        Debug.Log("PlayerPrefs.GetFloat(\"Zpos" + selected_profile_index + "\" = " + PlayerPrefs.GetFloat("Zpos" + selected_profile_index));
+        Debug.Log("PlayerPrefs.GetInt(\"Progression" + selected_profile_index + "\" = " + PlayerPrefs.GetInt("Progression" + selected_profile_index));
     }
 
     // Carica tutto
     // Carica i valori dei prefs nelle variabili statiche
     public static void LoadALL() {
         current_season_index = PlayerPrefs.GetInt("Season" + selected_profile_index);
-        player_position.x = PlayerPrefs.GetInt("Xpos" + selected_profile_index);
-        player_position.y = PlayerPrefs.GetInt("Ypos" + selected_profile_index);
-        player_position.z = PlayerPrefs.GetInt("Zpos" + selected_profile_index);
+        player_position.x = PlayerPrefs.GetFloat("Xpos" + selected_profile_index);
+        player_position.y = PlayerPrefs.GetFloat("Ypos" + selected_profile_index);
+        player_position.z = PlayerPrefs.GetFloat("Zpos" + selected_profile_index);
         player_progression = PlayerPrefs.GetInt("Progression" + selected_profile_index);
 
 
+        Debug.Log("LoadALL");
+
         Debug.Log("selected_profile_index = " + selected_profile_index);
+
+        Debug.Log("PlayerPrefs.GetInt(\"Season" + selected_profile_index + "\" = " + PlayerPrefs.GetInt("Season" + selected_profile_index));
+        Debug.Log("PlayerPrefs.GetFloat(\"Xpos" + selected_profile_index + "\" = " + PlayerPrefs.GetFloat("Xpos" + selected_profile_index));
+        Debug.Log("PlayerPrefs.GetFloat(\"Ypos" + selected_profile_index + "\" = " + PlayerPrefs.GetFloat("Ypos" + selected_profile_index));
+        Debug.Log("PlayerPrefs.GetFloat(\"Zpos" + selected_profile_index + "\" = " + PlayerPrefs.GetFloat("Zpos" + selected_profile_index));
+        Debug.Log("PlayerPrefs.GetInt(\"Progression" + selected_profile_index + "\" = " + PlayerPrefs.GetInt("Progression" + selected_profile_index));
+
         Debug.Log("current_season_index = " + current_season_index);
         Debug.Log("player_position.x = " + player_position.x);
         Debug.Log("player_position.y = " + player_position.y);
         Debug.Log("player_position.z = " + player_position.z);
         Debug.Log("player_progression = " + player_progression);
-
-        Debug.Log("PlayerPrefs.GetInt(\"Season\"" + selected_profile_index + " = " + PlayerPrefs.GetInt("Season" + selected_profile_index));
-        Debug.Log("PlayerPrefs.GetInt(\"Xpos\"" + selected_profile_index + " = " + PlayerPrefs.GetInt("Xpos" + selected_profile_index));
-        Debug.Log("PlayerPrefs.GetInt(\"Ypos\"" + selected_profile_index + " = " + PlayerPrefs.GetInt("Ypos" + selected_profile_index));
-        Debug.Log("PlayerPrefs.GetInt(\"Zpos\"" + selected_profile_index + " = " + PlayerPrefs.GetInt("Zpos" + selected_profile_index));
-        Debug.Log("PlayerPrefs.GetInt(\"Progression\"" + selected_profile_index + " = " + PlayerPrefs.GetInt("Progression" + selected_profile_index));
     }
 
     // Funzione che aggiorna le variabili statiche
