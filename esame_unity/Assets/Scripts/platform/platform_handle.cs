@@ -3,44 +3,35 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(CharacterController))] // forza il programma a richiedere il character controller, se non esiste non funge nulla
-
 public class platform_handle : MonoBehaviour
 {
-
-    // variabili movimento
-    private CharacterController character_controller;
-    private float speed_pg = 10.0f;
-    private Vector2 vec_move;
-
-    // variabili salto
-    private Vector3 vec_jump;
-    private bool isGrounded; // per vedere se il pg è in aria o sul terreno
-    private bool jumpPressed = false;
-    [SerializeField] private float jumpForce = 10.0f; // quanto può andare in alto il pg
-
-    void Start()
+    [SerializeField] private float speed;
+    private Rigidbody player;
+    void Start(){
+        player = GetComponent<Rigidbody>();
+    }
+    
+    public void Movement(InputAction.CallbackContext context)
     {
-        character_controller = GetComponent<CharacterController>();
+        Debug.Log(context.phase);
+        if(context.performed){
+            StartCoroutine(movementCoroutine(context));
+        } else if (context.canceled){
+             StopCoroutine(movementCoroutine(context));
+        }
     }
 
-    void Update()
-    {
-        //vec_move = pg_controls.ReadValue<Vector2>();
-        Vector3 movement = new Vector3(vec_move.x, 0.0f, 0.0f); // ora mi serve muovermi solo su x
-        character_controller.SimpleMove(movement * speed_pg);
+    private IEnumerator movementCoroutine(InputAction.CallbackContext ctx){
+        while(true){
+            Vector2 inputVector = ctx.ReadValue<Vector2>();
+            //player.AddForce(new Vector3(inputVector.x, 0.0f, 0.0f) * speed, ForceMode.Force);
+            player.velocity = new Vector3(ctx.ReadValue<Vector2>().x*speed,player.velocity.y,0f);
+            yield return new WaitForFixedUpdate();
+        }
     }
-
-    // funzioni che fanno parte dell'input system, mandano "messaggi" al gameobject
-    void OnMove(InputValue iv){
-
-        vec_move = iv.Get<Vector2>();
-    }
-
-    void OnJump(){
-
-    }
+    
 }
