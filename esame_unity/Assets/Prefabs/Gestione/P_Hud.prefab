@@ -547,7 +547,7 @@ GameObject:
   - component: {fileID: 7536301193325095686}
   - component: {fileID: 6432541491347976264}
   m_Layer: 5
-  m_Name: Hud
+  m_Name: P_Hud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

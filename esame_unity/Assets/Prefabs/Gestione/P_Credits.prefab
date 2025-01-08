@@ -685,7 +685,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6952339813908089035}
   m_Layer: 5
-  m_Name: Credits
+  m_Name: P_Credits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
