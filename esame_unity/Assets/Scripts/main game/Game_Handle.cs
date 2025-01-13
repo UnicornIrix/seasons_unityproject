@@ -6,11 +6,15 @@ using UnityEngine.InputSystem;
 
 public class Game_Handle : MonoBehaviour
 {
+    public FirstPersonController firstPersonController;
     public InputAction player_controls;
     public Rigidbody rb;
     Vector3 direction_move = Vector3.zero;
 
     public int speed_pg = 5; // velocità del personaggio (per ora provvisoria)
+    //tentativi
+    [SerializeField]
+    tentativo_apertura_menu ui;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +26,15 @@ public class Game_Handle : MonoBehaviour
     void Update()
     {
         direction_move = player_controls.ReadValue<Vector3>(); 
+
+        //tentativi
+        if (Input.GetKeyDown(KeyCode.C))
+            if (ui.Visible)
+                ui.Hide();
+            else
+                ui.Show();
+        
+
     }
 
  // capire che è
@@ -35,5 +48,7 @@ public class Game_Handle : MonoBehaviour
 
     private void FixedUpdate() {
         rb.velocity = new Vector3(direction_move.x*speed_pg, 0, direction_move.z*speed_pg);
+ 
     }
+    
 }
