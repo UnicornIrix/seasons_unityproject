@@ -25,28 +25,40 @@ public class Cambio_stagioni : MonoBehaviour
 
     public void TRANSITION_Estate()
     {
-        foreach (GameObject go in gameObjects)
+        if (Data_save.current_season_index != 2)
         {
-            animator = go.GetComponent<Animator>();
-            animator.SetTrigger("to_estate");
+            Data_save.current_season_index = 2;
+            foreach (GameObject go in gameObjects)
+            {
+                animator = go.GetComponent<Animator>();
+                animator.SetTrigger("to_estate");
+            }
         }
     }
 
     public void TRANSITION_Autunno()
     {
-        foreach (GameObject go in gameObjects)
+        if (Data_save.current_season_index != 3)
         {
-            animator = go.GetComponent<Animator>();
-            animator.SetTrigger("to_autunno");
+            Data_save.current_season_index = 3;
+            foreach (GameObject go in gameObjects)
+            {
+                animator = go.GetComponent<Animator>();
+                animator.SetTrigger("to_autunno");
+            }
         }
     }
 
     public void TRANSITION_Inverno()
     {
-        foreach (GameObject go in gameObjects)
+        if (Data_save.current_season_index != 4)
         {
-            animator = go.GetComponent<Animator>();
-            animator.SetTrigger("to_inverno");
+            Data_save.current_season_index = 4;
+            foreach (GameObject go in gameObjects)
+            {
+                animator = go.GetComponent<Animator>();
+                animator.SetTrigger("to_inverno");
+            }
         }
     }
 }
