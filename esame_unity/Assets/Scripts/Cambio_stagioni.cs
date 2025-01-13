@@ -13,7 +13,8 @@ public class Cambio_stagioni : MonoBehaviour
         gameObjects = GameObject.FindGameObjectsWithTag("Albero");
     }
     public void TRANSITION_Primavera() {
-        if (Data_save.current_season_index != 1) { 
+        if (Data_save.current_season_index != 1) {
+            Data_save.current_season_index = 1;
             foreach (GameObject go in gameObjects)
             {
                 animator = go.GetComponent<Animator>();

@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - pavimento
   - Albero
+  - Game menu
   layers:
   - Default
   - TransparentFX
