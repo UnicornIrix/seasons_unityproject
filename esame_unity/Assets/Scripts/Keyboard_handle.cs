@@ -11,17 +11,23 @@ public class Keyboard_handle : MonoBehaviour
     [SerializeField]
     Apertura_seasonmenu ui_season;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
-        //gestione game menu
+        // game menu
         if (Input.GetKeyDown(KeyCode.C)){
-            if (ui_game.Visible){
+            gestione_game();
+        }
+
+        // season menu
+        if (Input.GetKeyDown(KeyCode.V)){
+            gestione_season();
+        }
+    }
+
+    // gestione game menu
+    public void gestione_game(){
+        if (ui_game.Visible){
                 ui_game.HideGameMenu();
             } else{
                 ui_game.ShowGameMenu();
@@ -29,11 +35,11 @@ public class Keyboard_handle : MonoBehaviour
                     ui_season.HideSeasonMenu();
                 }
             }
-        }
-        
+    }
 
-        if (Input.GetKeyDown(KeyCode.V)){
-            if (ui_season.Visible){
+    // gestione season menu
+    public void gestione_season(){
+        if (ui_season.Visible){
                 ui_season.HideSeasonMenu();
             } else{
                 ui_season.ShowSeasonMenu();
@@ -41,7 +47,5 @@ public class Keyboard_handle : MonoBehaviour
                     ui_game.HideGameMenu();
                 }
             }
-        }
-
     }
 }
