@@ -2,30 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class tentativo_apertura_menu : MonoBehaviour
+public class Apertura_seasonmenu : MonoBehaviour
 {
    [SerializeField]
     private GameObject[] elements;
-    private bool visible;
+    private bool visible = false;
 
     public bool Visible
     {
         get { return visible; }
     }
 
-    public void Show()
+    public void ShowSeasonMenu()
     {
         foreach (GameObject item in elements)
         {
             item.SetActive(true);
+            visible = true;
         }
     }
 
-    public void Hide()
+    public void HideSeasonMenu()
     {
         foreach (GameObject item in elements)
         {
             item.SetActive(false);
+            visible = false;
         }
     }
 }

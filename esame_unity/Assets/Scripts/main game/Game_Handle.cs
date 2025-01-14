@@ -12,9 +12,7 @@ public class Game_Handle : MonoBehaviour
     Vector3 direction_move = Vector3.zero;
 
     public int speed_pg = 5; // velocità del personaggio (per ora provvisoria)
-    //tentativi
-    [SerializeField]
-    tentativo_apertura_menu ui;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -26,14 +24,6 @@ public class Game_Handle : MonoBehaviour
     void Update()
     {
         direction_move = player_controls.ReadValue<Vector3>(); 
-
-        //tentativi
-        if (Input.GetKeyDown(KeyCode.C))
-            if (ui.Visible)
-                ui.Hide();
-            else
-                ui.Show();
-        
 
     }
 
