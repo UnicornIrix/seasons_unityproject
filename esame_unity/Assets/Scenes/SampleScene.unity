@@ -19365,7 +19365,7 @@ PrefabInstance:
       objectReference: {fileID: 3049347762218569918}
     - target: {fileID: 2126711382829383418, guid: 268bcdb59922c724a9e4f7101206f32b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CONTINUE_button
+      value: BACKSM_button
       objectReference: {fileID: 0}
     - target: {fileID: 2126711382829383418, guid: 268bcdb59922c724a9e4f7101206f32b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
