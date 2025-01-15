@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class Cambio_stagioni : MonoBehaviour
 {
-    GameObject[] gameObjects;
+    GameObject[] alberi;
+    GameObject[] funghi;
+    GameObject[] fiori;
 
     private Animator animator;
 
     private void Start()
     {
-        gameObjects = GameObject.FindGameObjectsWithTag("Albero");
+        alberi = GameObject.FindGameObjectsWithTag("Albero");
+        funghi = GameObject.FindGameObjectsWithTag("Fungo");
+        fiori = GameObject.FindGameObjectsWithTag("Fiore");
     }
     public void TRANSITION_Primavera() {
         if (Data_save.current_season_index != 1) { 
             Data_save.current_season_index = 1;
-            foreach (GameObject go in gameObjects)
+            foreach (GameObject go in alberi)
             {
                 animator = go.GetComponent<Animator>();
                 animator.SetTrigger("to_primavera");
@@ -27,7 +31,7 @@ public class Cambio_stagioni : MonoBehaviour
     {
         if (Data_save.current_season_index != 2) { 
             Data_save.current_season_index = 2;
-            foreach (GameObject go in gameObjects)
+            foreach (GameObject go in alberi)
             {
                 animator = go.GetComponent<Animator>();
                 animator.SetTrigger("to_estate");
@@ -39,10 +43,14 @@ public class Cambio_stagioni : MonoBehaviour
     {
         if (Data_save.current_season_index != 3) { 
             Data_save.current_season_index = 3;
-            foreach (GameObject go in gameObjects)
+            foreach (GameObject go in alberi)
             {
                 animator = go.GetComponent<Animator>();
                 animator.SetTrigger("to_autunno");
+            }
+            foreach (GameObject go in funghi)
+            {
+                go.SetActive(true);
             }
         }
     }
@@ -51,7 +59,7 @@ public class Cambio_stagioni : MonoBehaviour
     {
         if (Data_save.current_season_index != 4) { 
             Data_save.current_season_index = 4;
-            foreach (GameObject go in gameObjects)
+            foreach (GameObject go in alberi)
             {
                 animator = go.GetComponent<Animator>();
                 animator.SetTrigger("to_inverno");

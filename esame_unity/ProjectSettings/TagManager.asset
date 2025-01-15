@@ -7,6 +7,8 @@ TagManager:
   - pavimento
   - Albero
   - roccia
+  - Fungo
+  - Fiore
   layers:
   - Default
   - TransparentFX
