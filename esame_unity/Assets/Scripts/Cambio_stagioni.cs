@@ -13,7 +13,7 @@ public class Cambio_stagioni : MonoBehaviour
         gameObjects = GameObject.FindGameObjectsWithTag("Albero");
     }
     public void TRANSITION_Primavera() {
-        if (Data_save.current_season_index != 1) {
+        if (Data_save.current_season_index != 1) { 
             Data_save.current_season_index = 1;
             foreach (GameObject go in gameObjects)
             {
@@ -25,8 +25,7 @@ public class Cambio_stagioni : MonoBehaviour
 
     public void TRANSITION_Estate()
     {
-        if (Data_save.current_season_index != 2)
-        {
+        if (Data_save.current_season_index != 2) { 
             Data_save.current_season_index = 2;
             foreach (GameObject go in gameObjects)
             {
@@ -38,8 +37,7 @@ public class Cambio_stagioni : MonoBehaviour
 
     public void TRANSITION_Autunno()
     {
-        if (Data_save.current_season_index != 3)
-        {
+        if (Data_save.current_season_index != 3) { 
             Data_save.current_season_index = 3;
             foreach (GameObject go in gameObjects)
             {
@@ -51,8 +49,7 @@ public class Cambio_stagioni : MonoBehaviour
 
     public void TRANSITION_Inverno()
     {
-        if (Data_save.current_season_index != 4)
-        {
+        if (Data_save.current_season_index != 4) { 
             Data_save.current_season_index = 4;
             foreach (GameObject go in gameObjects)
             {
