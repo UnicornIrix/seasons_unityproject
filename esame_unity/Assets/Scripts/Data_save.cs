@@ -139,7 +139,7 @@ public class Data_save : MonoBehaviour
 
 
     // Funzione dei tasti del menu Load game
-    // Crea un nuovo salvataggio o aggiorna i dati se già pieno
+    // Crea un nuovo salvataggio o aggiorna i dati se giï¿½ pieno
     public void LoadBUTTON() {
         if (PlayerPrefs.HasKey("Progression" + selected_profile_index))
         {
@@ -192,22 +192,22 @@ public class Data_save : MonoBehaviour
     public void Start()
     {
         if(PlayerPrefs.HasKey("Season1")) {
-            Slot1.text = "1 - Grostnix 1";
+            Slot1.text = "1 - Profile 1";
             Clear_button1.SetActive(true);
         }
 
         if (PlayerPrefs.HasKey("Season2")) {
-            Slot2.text = "2 - Grostnix 2";
+            Slot2.text = "2 - Profile 2";
             Clear_button2.SetActive(true);
         }
 
         if (PlayerPrefs.HasKey("Season3")) {
-            Slot3.text = "3 - Grostnix 3";
+            Slot3.text = "3 - Profile 3";
             Clear_button3.SetActive(true);
         }
 
         if (PlayerPrefs.HasKey("Season4")) {
-            Slot4.text = "4 - Grostnix 4";
+            Slot4.text = "4 - Profile 4";
             Clear_button4.SetActive(true);
         }
     }

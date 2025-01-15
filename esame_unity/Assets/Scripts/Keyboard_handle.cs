@@ -20,7 +20,9 @@ public class Keyboard_handle : MonoBehaviour
 
         // season menu
         if (Input.GetKeyDown(KeyCode.V)){
-            gestione_season();
+            if(gestione_rocce.collisione_rocce){
+                gestione_season();
+            }
         }
     }
 

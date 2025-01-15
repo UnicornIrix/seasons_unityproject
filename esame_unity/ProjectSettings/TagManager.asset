@@ -6,6 +6,7 @@ TagManager:
   tags:
   - pavimento
   - Albero
+  - roccia
   layers:
   - Default
   - TransparentFX
