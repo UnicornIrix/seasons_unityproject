@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TreeEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +11,10 @@ public class Menu_buttons : MonoBehaviour
     //
 
     public GameObject Game_menu;
+    public GameObject Season_menu;
+    
+    public Apertura_gamemenu gm;
+    public Apertura_seasonmenu sm;
 
     // public GameObject player_gameobject;
 
@@ -40,7 +45,10 @@ public class Menu_buttons : MonoBehaviour
     {
         // SceneManager.LoadScene("Main");
         Time.timeScale = 1f;
-        Game_menu.SetActive(false);
+        //Game_menu.SetActive(false);
+        //Season_menu.SetActive(false);
+        gm.HideGameMenu();
+        sm.HideSeasonMenu();
     }
 
     // Tasto Back to menu - ritorna al menu iniziale
