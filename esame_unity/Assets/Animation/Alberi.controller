@@ -503,6 +503,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: bool_prim
     m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: to_primavera
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7101247523955287706}
   m_Solo: 0

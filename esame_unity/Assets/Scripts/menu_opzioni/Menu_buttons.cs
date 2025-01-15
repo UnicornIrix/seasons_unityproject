@@ -10,8 +10,8 @@ public class Menu_buttons : MonoBehaviour
     // Script che gestisce i bottoni della UI dei menu
     //
 
-    public GameObject Game_menu;
-    public GameObject Season_menu;
+    // public GameObject Game_menu;
+    // public GameObject Season_menu;
     
     public Apertura_gamemenu gm;
     public Apertura_seasonmenu sm;
@@ -36,7 +36,7 @@ public class Menu_buttons : MonoBehaviour
     {
         // SceneManager.LoadScene("Game_menu");
         Time.timeScale = 0f;
-        Game_menu.SetActive(true);
+        // Game_menu.SetActive(true);
     }
 
     // Tasto Continue - ritorna alla main scene
@@ -44,7 +44,7 @@ public class Menu_buttons : MonoBehaviour
     public void CONTINUE_button()
     {
         // SceneManager.LoadScene("Main");
-        Time.timeScale = 1f;
+        // Time.timeScale = 1f;
         //Game_menu.SetActive(false);
         //Season_menu.SetActive(false);
         gm.HideGameMenu();

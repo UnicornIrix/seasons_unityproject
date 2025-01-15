@@ -255,7 +255,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 457820857736128483}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Menu_buttons, Assembly-CSharp
         m_MethodName: CONTINUE_button
         m_Mode: 1
@@ -522,7 +522,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 457820857736128483}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Menu_buttons, Assembly-CSharp
         m_MethodName: CONTINUE_button
         m_Mode: 1
@@ -621,9 +621,6 @@ GameObject:
   - component: {fileID: 8674703770274951306}
   - component: {fileID: 1947168495282893503}
   - component: {fileID: 7119333434269574778}
-  - component: {fileID: 6186590986940137847}
-  - component: {fileID: 457820857736128483}
-  - component: {fileID: 8109356999930275494}
   m_Layer: 5
   m_Name: GameMenu+SeasonMenu
   m_TagString: Untagged
@@ -716,50 +713,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &6186590986940137847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4017734357590840428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48b436ba330f8c94990bcfd04dec7fb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  elements:
-  - {fileID: 4300389633227651711}
---- !u!114 &457820857736128483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4017734357590840428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9bfb92f654e450438361dfc636e918e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Game_menu: {fileID: 4300389633227651711}
-  Season_menu: {fileID: 4244911632390667755}
-  gm: {fileID: 6186590986940137847}
-  sm: {fileID: 8109356999930275494}
---- !u!114 &8109356999930275494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4017734357590840428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82034b8743c50db409ef6d2a9932ed7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  elements:
-  - {fileID: 4244911632390667755}
 --- !u!1 &4244911632390667755
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,10 +742,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 141120075339405250}
+  - {fileID: 5033741307892550822}
   - {fileID: 8784129359347184746}
   - {fileID: 9204649327166955277}
   - {fileID: 7797457606037936026}
-  - {fileID: 5033741307892550822}
   - {fileID: 4750184759919315815}
   m_Father: {fileID: 2894886335321651201}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1482,7 +1435,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 457820857736128483}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Menu_buttons, Assembly-CSharp
         m_MethodName: BACKSM_button
         m_Mode: 1
