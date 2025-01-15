@@ -6,7 +6,14 @@ public class Apertura_seasonmenu : MonoBehaviour
 {
    [SerializeField]
     private GameObject[] elements;
+
+    private FirstPersonController player;
+
     private bool visible = false;
+
+    void Start() {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>();
+    }
 
     public bool Visible
     {
@@ -20,6 +27,7 @@ public class Apertura_seasonmenu : MonoBehaviour
             item.SetActive(true);
             visible = true;
         }
+        player.enabled = false;
     }
 
     public void HideSeasonMenu()
@@ -29,5 +37,6 @@ public class Apertura_seasonmenu : MonoBehaviour
             item.SetActive(false);
             visible = false;
         }
+        player.enabled = true;
     }
 }

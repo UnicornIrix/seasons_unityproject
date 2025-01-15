@@ -11,7 +11,6 @@ public class Keyboard_handle : MonoBehaviour
     [SerializeField]
     Apertura_seasonmenu ui_season;
 
-
     void Update()
     {
         // game menu
@@ -30,10 +29,10 @@ public class Keyboard_handle : MonoBehaviour
         if (ui_game.Visible){
                 ui_game.HideGameMenu();
             } else{
-                ui_game.ShowGameMenu();
                 if(ui_season.Visible){
                     ui_season.HideSeasonMenu();
                 }
+                ui_game.ShowGameMenu();
             }
     }
 
@@ -42,10 +41,10 @@ public class Keyboard_handle : MonoBehaviour
         if (ui_season.Visible){
                 ui_season.HideSeasonMenu();
             } else{
-                ui_season.ShowSeasonMenu();
                 if(ui_game.Visible){
                     ui_game.HideGameMenu();
                 }
+                ui_season.ShowSeasonMenu();
             }
     }
 }
