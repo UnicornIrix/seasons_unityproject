@@ -7,6 +7,7 @@ public class Cambio_stagioni : MonoBehaviour
     GameObject[] alberi;
     [SerializeField] private GameObject funghi;
     [SerializeField] private GameObject fiori;
+    [SerializeField] private GameObject frutta;
 
     [SerializeField]
     private GameObject neve;
@@ -31,6 +32,7 @@ public class Cambio_stagioni : MonoBehaviour
             neve.SetActive(false);
             funghi.SetActive(false);
             fiori.SetActive(true);
+            frutta.SetActive(false);
         }
     }
 
@@ -48,6 +50,8 @@ public class Cambio_stagioni : MonoBehaviour
             neve.SetActive(false);
             funghi.SetActive(false);
             fiori.SetActive(false);
+            frutta.SetActive(true);
+
         }
     }
 
@@ -65,6 +69,7 @@ public class Cambio_stagioni : MonoBehaviour
             neve.SetActive(false);
             funghi.SetActive(true);
             fiori.SetActive(false);
+            frutta.SetActive(false);
         }
     }
 
@@ -82,6 +87,7 @@ public class Cambio_stagioni : MonoBehaviour
             neve.SetActive(true);
             funghi.SetActive(false);
             fiori.SetActive(false);
+            frutta.SetActive(false);
         }
     }
 }
