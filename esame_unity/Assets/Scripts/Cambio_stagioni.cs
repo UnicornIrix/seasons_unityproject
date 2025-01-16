@@ -5,8 +5,8 @@ using UnityEngine;
 public class Cambio_stagioni : MonoBehaviour
 {
     GameObject[] alberi;
-    GameObject[] funghi;
-    GameObject[] fiori;
+    [SerializeField] private GameObject funghi;
+    [SerializeField] private GameObject fiori;
 
     [SerializeField]
     private GameObject neve;
@@ -16,8 +16,8 @@ public class Cambio_stagioni : MonoBehaviour
     private void Start()
     {
         alberi = GameObject.FindGameObjectsWithTag("Albero");
-        funghi = GameObject.FindGameObjectsWithTag("Fungo");
-        fiori = GameObject.FindGameObjectsWithTag("Fiore");
+    
+
     }
     public void TRANSITION_Primavera() {
         if (Data_save.current_season_index != 1) { 
@@ -29,6 +29,8 @@ public class Cambio_stagioni : MonoBehaviour
             }
 
             neve.SetActive(false);
+            funghi.SetActive(false);
+            fiori.SetActive(true);
         }
     }
 
@@ -44,6 +46,8 @@ public class Cambio_stagioni : MonoBehaviour
             }
 
             neve.SetActive(false);
+            funghi.SetActive(false);
+            fiori.SetActive(false);
         }
     }
 
@@ -58,12 +62,9 @@ public class Cambio_stagioni : MonoBehaviour
                 animator.SetTrigger("to_autunno");
             }
 
-            foreach (GameObject go in funghi)
-            {
-                go.SetActive(true);
-            }
-
             neve.SetActive(false);
+            funghi.SetActive(true);
+            fiori.SetActive(false);
         }
     }
 
@@ -79,6 +80,8 @@ public class Cambio_stagioni : MonoBehaviour
             }
 
             neve.SetActive(true);
+            funghi.SetActive(false);
+            fiori.SetActive(false);
         }
     }
 }
