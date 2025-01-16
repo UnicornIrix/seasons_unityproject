@@ -19,14 +19,20 @@ public class Cambio_stagioni : MonoBehaviour
         funghi = GameObject.FindGameObjectsWithTag("Fungo");
         fiori = GameObject.FindGameObjectsWithTag("Fiore");
     }
-    public void TRANSITION_Primavera() {
-        if (Data_save.current_season_index != 1) { 
+
+    public void TRANSITION_Primavera()
+    {
+        if (Data_save.current_season_index != 1)
+        {
             Data_save.current_season_index = 1;
+
             foreach (GameObject go in alberi)
             {
                 animator = go.GetComponent<Animator>();
                 animator.SetTrigger("to_primavera");
             }
+
+            RenderSettings.fogStartDistance = 0;
 
             neve.SetActive(false);
         }
@@ -34,7 +40,8 @@ public class Cambio_stagioni : MonoBehaviour
 
     public void TRANSITION_Estate()
     {
-        if (Data_save.current_season_index != 2) { 
+        if (Data_save.current_season_index != 2)
+        {
             Data_save.current_season_index = 2;
 
             foreach (GameObject go in alberi)
@@ -43,13 +50,16 @@ public class Cambio_stagioni : MonoBehaviour
                 animator.SetTrigger("to_estate");
             }
 
+            RenderSettings.fogStartDistance = 0;
+
             neve.SetActive(false);
         }
     }
 
     public void TRANSITION_Autunno()
     {
-        if (Data_save.current_season_index != 3) { 
+        if (Data_save.current_season_index != 3)
+        {
             Data_save.current_season_index = 3;
 
             foreach (GameObject go in alberi)
@@ -63,13 +73,16 @@ public class Cambio_stagioni : MonoBehaviour
                 go.SetActive(true);
             }
 
+            RenderSettings.fogStartDistance = -100;
+
             neve.SetActive(false);
         }
     }
 
     public void TRANSITION_Inverno()
     {
-        if (Data_save.current_season_index != 4) { 
+        if (Data_save.current_season_index != 4)
+        {
             Data_save.current_season_index = 4;
 
             foreach (GameObject go in alberi)
@@ -78,7 +91,18 @@ public class Cambio_stagioni : MonoBehaviour
                 animator.SetTrigger("to_inverno");
             }
 
+            RenderSettings.fogStartDistance = -250;
+
             neve.SetActive(true);
+        }
+    }
+
+    public void start_animation(string animation_name, GameObject[] gameObjects)
+    {
+        foreach (GameObject go in gameObjects)
+        {
+            animator = go.GetComponent<Animator>();
+            animator.SetTrigger(animation_name);
         }
     }
 }
