@@ -14,6 +14,7 @@ public class Menu_buttons : MonoBehaviour
     
     public Apertura_gamemenu gm;
     public Apertura_seasonmenu sm;
+    public Apertura_tutorial tm;
 
     // public GameObject player_gameobject;
 
@@ -59,4 +60,5 @@ public class Menu_buttons : MonoBehaviour
         //Data_save.player_position = player_gameobject.transform.position;
         // Data_save.SaveALL();
     }
+
 }
