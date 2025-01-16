@@ -8,6 +8,9 @@ public class Cambio_stagioni : MonoBehaviour
     GameObject[] funghi;
     GameObject[] fiori;
 
+    [SerializeField]
+    private GameObject neve;
+
     private Animator animator;
 
     private void Start()
@@ -24,6 +27,8 @@ public class Cambio_stagioni : MonoBehaviour
                 animator = go.GetComponent<Animator>();
                 animator.SetTrigger("to_primavera");
             }
+
+            neve.SetActive(false);
         }
     }
 
@@ -31,11 +36,14 @@ public class Cambio_stagioni : MonoBehaviour
     {
         if (Data_save.current_season_index != 2) { 
             Data_save.current_season_index = 2;
+
             foreach (GameObject go in alberi)
             {
                 animator = go.GetComponent<Animator>();
                 animator.SetTrigger("to_estate");
             }
+
+            neve.SetActive(false);
         }
     }
 
@@ -43,15 +51,19 @@ public class Cambio_stagioni : MonoBehaviour
     {
         if (Data_save.current_season_index != 3) { 
             Data_save.current_season_index = 3;
+
             foreach (GameObject go in alberi)
             {
                 animator = go.GetComponent<Animator>();
                 animator.SetTrigger("to_autunno");
             }
+
             foreach (GameObject go in funghi)
             {
                 go.SetActive(true);
             }
+
+            neve.SetActive(false);
         }
     }
 
@@ -59,11 +71,14 @@ public class Cambio_stagioni : MonoBehaviour
     {
         if (Data_save.current_season_index != 4) { 
             Data_save.current_season_index = 4;
+
             foreach (GameObject go in alberi)
             {
                 animator = go.GetComponent<Animator>();
                 animator.SetTrigger("to_inverno");
             }
+
+            neve.SetActive(true);
         }
     }
 }
