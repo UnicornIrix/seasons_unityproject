@@ -32,6 +32,10 @@ public class Options : MonoBehaviour
     // Slider Volume - regola il master volume
     public void SetVOLUME(float volume) {
         audioMixer.SetFloat("MasterVolume", volume);
+
+        if (volume == -40) {
+            audioMixer.SetFloat("MasterVolume", -80);
+        }
     }
     
     // Dropdown Quality - regola la qualit� video tra high medium low

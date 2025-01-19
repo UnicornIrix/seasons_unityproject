@@ -16,6 +16,12 @@ public class Cambio_stagioni : MonoBehaviour
 
     private ParticleSystem particellare;
 
+    [SerializeField]
+    private Material blue_sky;
+
+    [SerializeField]
+    private Material grey_sky;
+
     private void Start()
     {
         alberi = GameObject.FindGameObjectsWithTag("Albero");
@@ -35,7 +41,8 @@ public class Cambio_stagioni : MonoBehaviour
             fiori.SetActive(true);
             frutta.SetActive(false);
 
-            
+            RenderSettings.skybox = blue_sky;
+
         }
     }
 
@@ -52,6 +59,7 @@ public class Cambio_stagioni : MonoBehaviour
             funghi.SetActive(false);
             fiori.SetActive(false);
             frutta.SetActive(true);
+            RenderSettings.skybox = blue_sky;
 
         }
     }
@@ -63,12 +71,13 @@ public class Cambio_stagioni : MonoBehaviour
 
             start_animation("to_autunno", true, alberi);
 
-            RenderSettings.fogStartDistance = -100;
+            RenderSettings.fogStartDistance = -50;
             neve.SetActive(false);
 
             funghi.SetActive(true);
             fiori.SetActive(false);
             frutta.SetActive(false);
+            RenderSettings.skybox = grey_sky;
         }
     }
 
@@ -79,12 +88,14 @@ public class Cambio_stagioni : MonoBehaviour
 
             start_animation("to_inverno", false, alberi);
 
-            RenderSettings.fogStartDistance = -250;
+            RenderSettings.fogStartDistance = -100;
             neve.SetActive(true);
 
             funghi.SetActive(false);
             fiori.SetActive(false);
             frutta.SetActive(false);
+
+            RenderSettings.skybox = grey_sky;
         }
     }
 
