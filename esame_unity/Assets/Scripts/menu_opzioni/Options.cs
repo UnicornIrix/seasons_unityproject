@@ -26,7 +26,7 @@ public class Options : MonoBehaviour
         audioMixer.GetFloat("MasterVolume", out prova);
         volume.value = prova;
         //quality.value = QualitySettings.GetQualityLevel();
-        fullscreen.enabled = Screen.fullScreen;
+        fullscreen.isOn = Screen.fullScreen;
     }
 
     // Slider Volume - regola il master volume
