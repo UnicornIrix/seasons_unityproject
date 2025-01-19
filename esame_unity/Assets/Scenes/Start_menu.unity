@@ -1706,15 +1706,15 @@ RectTransform:
   m_GameObject: {fileID: 772845386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25457028, y: 0.25457028, z: 0.25457028}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1683446282}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.4976, y: 333.2799}
-  m_SizeDelta: {x: 960.3868, y: 540.2175}
+  m_AnchoredPosition: {x: -0.4976, y: 349}
+  m_SizeDelta: {x: 3746, y: 942}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &772845388
 MonoBehaviour:
@@ -1736,7 +1736,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2f98f6de6c52f8c4cbb693c0a38c60a0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a3e87be74a4599545be6a060ba5488ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1754,6 +1754,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772845386}
   m_CullTransparentMesh: 1
+--- !u!114 &954283811 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6251720579953479938, guid: 2f5ef2c0507f30345a97ffcaeafc4a62, type: 3}
+  m_PrefabInstance: {fileID: 1476729290}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1017483856
 GameObject:
   m_ObjectHideFlags: 0
@@ -2906,6 +2917,10 @@ PrefabInstance:
       value: -207
       objectReference: {fileID: 0}
     - target: {fileID: 6251720579953479938, guid: 2f5ef2c0507f30345a97ffcaeafc4a62, type: 3}
+      propertyPath: m_IsOn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6251720579953479938, guid: 2f5ef2c0507f30345a97ffcaeafc4a62, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2025509818}
@@ -3170,6 +3185,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9096487391464143464, guid: 2f5ef2c0507f30345a97ffcaeafc4a62, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9096487391464143464, guid: 2f5ef2c0507f30345a97ffcaeafc4a62, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2025509818}
@@ -3204,7 +3223,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1484893413
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3666,7 +3685,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1683446282
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3688,6 +3707,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1704826748 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 199890375296462353, guid: 2f5ef2c0507f30345a97ffcaeafc4a62, type: 3}
+  m_PrefabInstance: {fileID: 1476729290}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1719283384
 GameObject:
   m_ObjectHideFlags: 0
@@ -4646,6 +4676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
   sm: {fileID: 0}
+  tm: {fileID: 0}
 --- !u!1 &2022815646
 GameObject:
   m_ObjectHideFlags: 0
@@ -4802,7 +4833,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2b437f1f80974046877959992d37b3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: b05c5c00b550a497a8d90afbbc2a25f5, type: 2}
+  volume: {fileID: 1704826748}
+  fullscreen: {fileID: 954283811}
 --- !u!1 &2088907136
 GameObject:
   m_ObjectHideFlags: 0
