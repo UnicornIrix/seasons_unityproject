@@ -10,11 +10,11 @@ public class Cambio_stagioni : MonoBehaviour
     [SerializeField] private GameObject frutta;
 
     [SerializeField]
-    private GameObject neve;
+    private ParticleSystem PS_neve;
 
     private Animator animator;
 
-    private ParticleSystem particellare;
+    private ParticleSystem PS_foglie;
 
     [SerializeField]
     private Material blue_sky;
@@ -25,9 +25,9 @@ public class Cambio_stagioni : MonoBehaviour
     private void Start()
     {
         alberi = GameObject.FindGameObjectsWithTag("Albero");
-    
-
     }
+
+
     public void TRANSITION_Primavera() {
         if (Data_save.current_season_index != 1) { 
             Data_save.current_season_index = 1;
@@ -35,7 +35,7 @@ public class Cambio_stagioni : MonoBehaviour
             start_animation("to_primavera", false, alberi);
 
             RenderSettings.fogStartDistance = 0;
-            neve.SetActive(false);
+            PS_neve.enableEmission = false;
 
             funghi.SetActive(false);
             fiori.SetActive(true);
@@ -54,7 +54,7 @@ public class Cambio_stagioni : MonoBehaviour
             start_animation("to_estate", false, alberi);
 
             RenderSettings.fogStartDistance = 0;
-            neve.SetActive(false);
+            PS_neve.enableEmission = false;
 
             funghi.SetActive(false);
             fiori.SetActive(false);
@@ -72,7 +72,7 @@ public class Cambio_stagioni : MonoBehaviour
             start_animation("to_autunno", true, alberi);
 
             RenderSettings.fogStartDistance = -50;
-            neve.SetActive(false);
+            PS_neve.enableEmission = false;
 
             funghi.SetActive(true);
             fiori.SetActive(false);
@@ -89,7 +89,7 @@ public class Cambio_stagioni : MonoBehaviour
             start_animation("to_inverno", false, alberi);
 
             RenderSettings.fogStartDistance = -100;
-            neve.SetActive(true);
+            PS_neve.enableEmission = true;
 
             funghi.SetActive(false);
             fiori.SetActive(false);
@@ -104,9 +104,9 @@ public class Cambio_stagioni : MonoBehaviour
         foreach (GameObject go in gameObjects)
         {
             animator = go.GetComponent<Animator>();
-            particellare = go.GetComponentInChildren<ParticleSystem>();
+            PS_foglie = go.GetComponentInChildren<ParticleSystem>();
             animator.SetTrigger(animation_name);
-            particellare.enableEmission = isAutunno;
+            PS_foglie.enableEmission = isAutunno;
         }
     }
 }

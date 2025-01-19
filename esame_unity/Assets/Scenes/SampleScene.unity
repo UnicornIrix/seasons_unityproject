@@ -12315,6 +12315,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8840806836296289996, guid: 0e9f3d0caadb84549a6f038fdc9fc358, type: 3}
   m_PrefabInstance: {fileID: 683906214}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &585179519 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9190506247703992936, guid: 0e9f3d0caadb84549a6f038fdc9fc358, type: 3}
+  m_PrefabInstance: {fileID: 683906214}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &597650028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13915,7 +13920,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3777070145104159286, guid: 0e9f3d0caadb84549a6f038fdc9fc358, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8840806836296289996, guid: 0e9f3d0caadb84549a6f038fdc9fc358, type: 3}
       propertyPath: m_LocalScale.y
@@ -13976,6 +13981,10 @@ PrefabInstance:
     - target: {fileID: 9190506247703992936, guid: 0e9f3d0caadb84549a6f038fdc9fc358, type: 3}
       propertyPath: CollisionModule.type
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190506247703992936, guid: 0e9f3d0caadb84549a6f038fdc9fc358, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9190506247703992936, guid: 0e9f3d0caadb84549a6f038fdc9fc358, type: 3}
       propertyPath: CollisionModule.enabled
@@ -37827,6 +37836,10 @@ PrefabInstance:
       propertyPath: funghi
       value: 
       objectReference: {fileID: 2062055405}
+    - target: {fileID: 8948912381761384642, guid: 6041dddeba13476488d802db4b689990, type: 3}
+      propertyPath: PS_neve
+      value: 
+      objectReference: {fileID: 585179519}
     - target: {fileID: 8948912381761384642, guid: 6041dddeba13476488d802db4b689990, type: 3}
       propertyPath: blue_sky
       value: 
