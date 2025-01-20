@@ -15,7 +15,7 @@ public class Options : MonoBehaviour
     public AudioMixer audioMixer;
 
     public Slider volume;
-    //public Dropdown quality;
+    public TMP_Dropdown quality;
     public Toggle fullscreen;
 
     
@@ -25,7 +25,7 @@ public class Options : MonoBehaviour
         float prova;
         audioMixer.GetFloat("MasterVolume", out prova);
         volume.value = prova;
-        //quality.value = QualitySettings.GetQualityLevel();
+        quality.value = QualitySettings.GetQualityLevel();
         fullscreen.isOn = Screen.fullScreen;
     }
 

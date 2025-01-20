@@ -18,7 +18,7 @@ public class Keyboard_handle : MonoBehaviour
     void Update()
     {
         // game menu
-        if (Input.GetKeyDown(KeyCode.C)){
+        if (Input.GetKeyDown(KeyCode.Escape)){
             gestione_game();
         }
 
