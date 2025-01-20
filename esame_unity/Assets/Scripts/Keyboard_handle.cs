@@ -14,6 +14,8 @@ public class Keyboard_handle : MonoBehaviour
     [SerializeField]
     Apertura_tutorial ui_tutorial;
 
+    [SerializeField]
+    private Cursor_manager cursor_Manager;
 
     void Update()
     {
@@ -34,6 +36,7 @@ public class Keyboard_handle : MonoBehaviour
     public void gestione_game(){
         if (ui_game.Visible){
                 ui_game.HideGameMenu();
+                cursor_Manager.Hide_cursor();
             } else{
                 if(ui_season.Visible){
                     ui_season.HideSeasonMenu();
@@ -42,6 +45,7 @@ public class Keyboard_handle : MonoBehaviour
                     ui_tutorial.HideTutorialMenu();
                 }
                 ui_game.ShowGameMenu();
+                cursor_Manager.Show_cursor();
             }
     }
 
@@ -49,6 +53,7 @@ public class Keyboard_handle : MonoBehaviour
     public void gestione_season(){
         if (ui_season.Visible){
                 ui_season.HideSeasonMenu();
+                cursor_Manager.Hide_cursor();
             } else{
                 if(ui_game.Visible){
                     ui_game.HideGameMenu();
@@ -57,6 +62,7 @@ public class Keyboard_handle : MonoBehaviour
                     ui_tutorial.HideTutorialMenu();
                 }
                 ui_season.ShowSeasonMenu();
+                cursor_Manager.Show_cursor();
             }
     }
 }
