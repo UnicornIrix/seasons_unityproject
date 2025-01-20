@@ -77,23 +77,25 @@ public class Data_save : MonoBehaviour
         PlayerPrefs.SetFloat("Ypos" + selected_profile_index, player_position.y);
         PlayerPrefs.SetFloat("Zpos" + selected_profile_index, player_position.z);
         PlayerPrefs.SetInt("Progression" + selected_profile_index, player_progression);
+        PlayerPrefs.SetInt("Slot", selected_profile_index);
 
 
-        Debug.Log("SaveALL");
 
-        Debug.Log("selected_profile_index = " + selected_profile_index);
-
-        Debug.Log("current_season_index = " + current_season_index);
-        Debug.Log("player_position.x = " + player_position.x);
-        Debug.Log("player_position.y = " + player_position.y);
-        Debug.Log("player_position.z = " + player_position.z);
-        Debug.Log("player_progression = " + player_progression);
-
-        Debug.Log("PlayerPrefs.GetInt(\"Season" + selected_profile_index + "\" = " + PlayerPrefs.GetInt("Season" + selected_profile_index));
-        Debug.Log("PlayerPrefs.GetFloat(\"Xpos" + selected_profile_index + "\" = " + PlayerPrefs.GetFloat("Xpos" + selected_profile_index));
-        Debug.Log("PlayerPrefs.GetFloat(\"Ypos" + selected_profile_index + "\" = " + PlayerPrefs.GetFloat("Ypos" + selected_profile_index));
-        Debug.Log("PlayerPrefs.GetFloat(\"Zpos" + selected_profile_index + "\" = " + PlayerPrefs.GetFloat("Zpos" + selected_profile_index));
-        Debug.Log("PlayerPrefs.GetInt(\"Progression" + selected_profile_index + "\" = " + PlayerPrefs.GetInt("Progression" + selected_profile_index));
+        // Debug.Log("SaveALL");
+        // 
+        // Debug.Log("selected_profile_index = " + selected_profile_index);
+        // 
+        // Debug.Log("current_season_index = " + current_season_index);
+        // Debug.Log("player_position.x = " + player_position.x);
+        // Debug.Log("player_position.y = " + player_position.y);
+        // Debug.Log("player_position.z = " + player_position.z);
+        // Debug.Log("player_progression = " + player_progression);
+        // 
+        // Debug.Log("PlayerPrefs.GetInt(\"Season" + selected_profile_index + "\" = " + PlayerPrefs.GetInt("Season" + selected_profile_index));
+        // Debug.Log("PlayerPrefs.GetFloat(\"Xpos" + selected_profile_index + "\" = " + PlayerPrefs.GetFloat("Xpos" + selected_profile_index));
+        // Debug.Log("PlayerPrefs.GetFloat(\"Ypos" + selected_profile_index + "\" = " + PlayerPrefs.GetFloat("Ypos" + selected_profile_index));
+        // Debug.Log("PlayerPrefs.GetFloat(\"Zpos" + selected_profile_index + "\" = " + PlayerPrefs.GetFloat("Zpos" + selected_profile_index));
+        // Debug.Log("PlayerPrefs.GetInt(\"Progression" + selected_profile_index + "\" = " + PlayerPrefs.GetInt("Progression" + selected_profile_index));
     }
 
     // Carica tutto
@@ -104,23 +106,24 @@ public class Data_save : MonoBehaviour
         player_position.y = PlayerPrefs.GetFloat("Ypos" + selected_profile_index);
         player_position.z = PlayerPrefs.GetFloat("Zpos" + selected_profile_index);
         player_progression = PlayerPrefs.GetInt("Progression" + selected_profile_index);
+        selected_profile_index = PlayerPrefs.GetInt("Slot");
 
 
-        Debug.Log("LoadALL");
-
-        Debug.Log("selected_profile_index = " + selected_profile_index);
-
-        Debug.Log("PlayerPrefs.GetInt(\"Season" + selected_profile_index + "\" = " + PlayerPrefs.GetInt("Season" + selected_profile_index));
-        Debug.Log("PlayerPrefs.GetFloat(\"Xpos" + selected_profile_index + "\" = " + PlayerPrefs.GetFloat("Xpos" + selected_profile_index));
-        Debug.Log("PlayerPrefs.GetFloat(\"Ypos" + selected_profile_index + "\" = " + PlayerPrefs.GetFloat("Ypos" + selected_profile_index));
-        Debug.Log("PlayerPrefs.GetFloat(\"Zpos" + selected_profile_index + "\" = " + PlayerPrefs.GetFloat("Zpos" + selected_profile_index));
-        Debug.Log("PlayerPrefs.GetInt(\"Progression" + selected_profile_index + "\" = " + PlayerPrefs.GetInt("Progression" + selected_profile_index));
-
-        Debug.Log("current_season_index = " + current_season_index);
-        Debug.Log("player_position.x = " + player_position.x);
-        Debug.Log("player_position.y = " + player_position.y);
-        Debug.Log("player_position.z = " + player_position.z);
-        Debug.Log("player_progression = " + player_progression);
+        // Debug.Log("LoadALL");
+        // 
+        // Debug.Log("selected_profile_index = " + selected_profile_index);
+        // 
+        // Debug.Log("PlayerPrefs.GetInt(\"Season" + selected_profile_index + "\" = " + PlayerPrefs.GetInt("Season" + selected_profile_index));
+        // Debug.Log("PlayerPrefs.GetFloat(\"Xpos" + selected_profile_index + "\" = " + PlayerPrefs.GetFloat("Xpos" + selected_profile_index));
+        // Debug.Log("PlayerPrefs.GetFloat(\"Ypos" + selected_profile_index + "\" = " + PlayerPrefs.GetFloat("Ypos" + selected_profile_index));
+        // Debug.Log("PlayerPrefs.GetFloat(\"Zpos" + selected_profile_index + "\" = " + PlayerPrefs.GetFloat("Zpos" + selected_profile_index));
+        // Debug.Log("PlayerPrefs.GetInt(\"Progression" + selected_profile_index + "\" = " + PlayerPrefs.GetInt("Progression" + selected_profile_index));
+        // 
+        // Debug.Log("current_season_index = " + current_season_index);
+        // Debug.Log("player_position.x = " + player_position.x);
+        // Debug.Log("player_position.y = " + player_position.y);
+        // Debug.Log("player_position.z = " + player_position.z);
+        // Debug.Log("player_progression = " + player_progression);
     }
 
     // Funzione che aggiorna le variabili statiche
@@ -145,18 +148,21 @@ public class Data_save : MonoBehaviour
         {
             LoadALL();
 
-            SceneManager.LoadScene(current_season_index);
+            SceneManager.LoadScene(1);
         }
         else
         {
-            // Inizializza il giocatore in primavera in posizione (0,0)
-            current_season_index = 1;
-            player_position = Vector3.zero;
+            // Inizializza il giocatore in estate davanti alla casa
+            Debug.Log(selected_profile_index);
+            current_season_index = 2;
+            player_position.x = 736;
+            player_position.x = 14.98f;
+            player_position.x = 398;
             player_progression = 1;
 
             SaveALL();
 
-            SceneManager.LoadScene(current_season_index);
+            SceneManager.LoadScene(1);
         }
     }
     
