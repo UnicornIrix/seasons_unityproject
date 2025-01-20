@@ -1,24 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Cambio_stagioni : MonoBehaviour
 {
     GameObject[] alberi;
-    GameObject[] funghi;
-    GameObject[] fiori;
+    [SerializeField] private GameObject funghi;
+    [SerializeField] private GameObject fiori;
+    [SerializeField] private GameObject frutta;
 
     [SerializeField]
-    private GameObject neve;
+    private ParticleSystem PS_neve;
+
+    private ParticleSystem PS_foglie;
 
     private Animator animator;
+
+    [SerializeField]
+    private Material blue_sky;
+
+    [SerializeField]
+    private Material grey_sky;
+
+    private string animation_name;
 
     private void Start()
     {
         alberi = GameObject.FindGameObjectsWithTag("Albero");
-        funghi = GameObject.FindGameObjectsWithTag("Fungo");
-        fiori = GameObject.FindGameObjectsWithTag("Fiore");
     }
+
 
     public void TRANSITION_Primavera()
     {
@@ -26,15 +37,19 @@ public class Cambio_stagioni : MonoBehaviour
         {
             Data_save.current_season_index = 1;
 
-            foreach (GameObject go in alberi)
-            {
-                animator = go.GetComponent<Animator>();
-                animator.SetTrigger("to_primavera");
-            }
+            // animation_name = "to_primavera";
+
+            start_animation("to_primavera", false, alberi);
 
             RenderSettings.fogStartDistance = 0;
+            PS_neve.enableEmission = false;
 
-            neve.SetActive(false);
+            funghi.SetActive(false);
+            fiori.SetActive(true);
+            frutta.SetActive(false);
+
+            RenderSettings.skybox = blue_sky;
+
         }
     }
 
@@ -44,15 +59,18 @@ public class Cambio_stagioni : MonoBehaviour
         {
             Data_save.current_season_index = 2;
 
-            foreach (GameObject go in alberi)
-            {
-                animator = go.GetComponent<Animator>();
-                animator.SetTrigger("to_estate");
-            }
+            // animation_name = "to_estate";
+
+            start_animation("to_estate", false, alberi);
 
             RenderSettings.fogStartDistance = 0;
+            PS_neve.enableEmission = false;
 
-            neve.SetActive(false);
+            funghi.SetActive(false);
+            fiori.SetActive(false);
+            frutta.SetActive(true);
+            RenderSettings.skybox = blue_sky;
+
         }
     }
 
@@ -62,20 +80,17 @@ public class Cambio_stagioni : MonoBehaviour
         {
             Data_save.current_season_index = 3;
 
-            foreach (GameObject go in alberi)
-            {
-                animator = go.GetComponent<Animator>();
-                animator.SetTrigger("to_autunno");
-            }
+            //animation_name = "to_autunno";
 
-            foreach (GameObject go in funghi)
-            {
-                go.SetActive(true);
-            }
+            start_animation("to_autunno", true, alberi);
 
-            RenderSettings.fogStartDistance = -100;
+            RenderSettings.fogStartDistance = -50;
+            PS_neve.enableEmission = false;
 
-            neve.SetActive(false);
+            funghi.SetActive(true);
+            fiori.SetActive(false);
+            frutta.SetActive(false);
+            RenderSettings.skybox = grey_sky;
         }
     }
 
@@ -85,24 +100,32 @@ public class Cambio_stagioni : MonoBehaviour
         {
             Data_save.current_season_index = 4;
 
-            foreach (GameObject go in alberi)
-            {
-                animator = go.GetComponent<Animator>();
-                animator.SetTrigger("to_inverno");
-            }
+            // animation_name = "to_inverno";
 
-            RenderSettings.fogStartDistance = -250;
+            start_animation("to_inverno", false, alberi);
 
-            neve.SetActive(true);
+            RenderSettings.fogStartDistance = -100;
+            PS_neve.enableEmission = true;
+
+            funghi.SetActive(false);
+            fiori.SetActive(false);
+            frutta.SetActive(false);
+
+            RenderSettings.skybox = grey_sky;
         }
     }
 
-    public void start_animation(string animation_name, GameObject[] gameObjects)
+    // starta sia l'animazione degli alberi che il particellare delle foglie
+    public void start_animation(string animation_name, bool isAutunno, GameObject[] gameObjects)
     {
         foreach (GameObject go in gameObjects)
         {
             animator = go.GetComponent<Animator>();
+            PS_foglie = go.GetComponentInChildren<ParticleSystem>();
+
             animator.SetTrigger(animation_name);
+
+            PS_foglie.enableEmission = isAutunno;
         }
     }
 }

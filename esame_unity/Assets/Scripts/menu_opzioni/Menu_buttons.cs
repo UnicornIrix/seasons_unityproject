@@ -15,6 +15,7 @@ public class Menu_buttons : MonoBehaviour
     public Apertura_gamemenu gm;
     public Apertura_seasonmenu sm;
     public Apertura_tutorial tm;
+    public GameObject player;
 
     // public GameObject player_gameobject;
 
@@ -57,8 +58,8 @@ public class Menu_buttons : MonoBehaviour
     {
         SceneManager.LoadScene("Start_menu");
         Time.timeScale = 1f;
-        //Data_save.player_position = player_gameobject.transform.position;
-        // Data_save.SaveALL();
+        Data_save.player_position = player.transform.position;
+        Data_save.SaveALL();
     }
 
 }
