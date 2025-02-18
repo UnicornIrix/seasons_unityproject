@@ -1,0 +1,30 @@
+.Buttons {
+    height: 100px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    width: 480px;
+    font-size: 85px;
+    -unity-text-align: middle-center;
+    -unity-font: url("project://database/Assets/Font/Seasons-Regular.otf?fileID=12800000&guid=bd29b26dd61745341a41611b136639d9&type=3#Seasons-Regular");
+    -unity-font-definition: initial;
+    background-color: rgba(0, 0, 0, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    margin-right: 0;
+    margin-left: 0;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.Buttons:hover {
+    background-color: rgba(91, 91, 91, 0.08);
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-bottom-width: 5px;
+    border-bottom-color: rgb(130, 7, 85);
+    font-size: 80px;
+}
